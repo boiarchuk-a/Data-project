@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Скоринг клиента маркетинговой кампании</title>
+
+  <link rel="stylesheet" href="/static/style.css" />
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <h1>Скоринг клиента маркетинговой кампании</h1>
+
+    <form id="scoreForm" class="form">
+      <div class="field">
+        <label for="Income">Income</label>
+        <input id="Income" name="Income" type="number" step="any" placeholder="например 58000" required>
+      </div>
+
+      <div class="field">
+        <label for="Recency">Recency</label>
+        <input id="Recency" name="Recency" type="number" step="any" placeholder="например 58" required>
+      </div>
+
+      <div class="field">
+        <label for="MntWines">MntWines</label>
+        <input id="MntWines" name="MntWines" type="number" step="any" placeholder="например 635" required>
+      </div>
+
+      <button type="submit" class="btn">Посчитать вероятность отклика</button>
+    </form>
+
+    <div id="errorBox" class="error hidden"></div>
+
+    <div id="resultCard" class="card hidden">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Результат скоринга</div>
+          <div class="card-subtitle">Вероятность отклика по модели</div>
+        </div>
+        <span id="labelBadge" class="badge">—</span>
+      </div>
+
+      <div class="metric">
+        <div class="metric-row">
+          <div class="metric-name">Вероятность отклика</div>
+          <div id="probText" class="metric-value">—</div>
+        </div>
+
+        <div class="progress">
+          <div id="probBar" class="progress-bar" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div class="meta">
+        <div class="meta-item"><span class="meta-k">Модель:</span> <span id="modelVersion">—</span></div>
+        <div class="meta-item"><span class="meta-k">customer_id:</span> <span id="customerId">—</span></div>
+        <div class="meta-item"><span class="meta-k">prediction_id:</span> <span id="predictionId">—</span></div>
+      </div>
+
+      <details class="details">
+        <summary>Показать JSON ответа</summary>
+        <pre id="debugJson" class="code"></pre>
+      </details>
+    </div>
+  </main>
+</body>
+</html>
