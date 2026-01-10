@@ -32,3 +32,5 @@ flaml[automl]>=2.1.0
 
 # Тесты
 pytest>=8.0
+
+aio-pika>=9.0,<10.0
